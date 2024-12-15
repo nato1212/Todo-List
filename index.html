@@ -10,5 +10,30 @@
     <header>
       <h1>My Todo List</h1>
     </header>
+    <main>
+      <div class="add-task">
+        <label for="task">Add task</label>
+        <input
+          type="text"
+          id="inputTask"
+          placeholder="write new task"
+          required
+        />
+        <label for="date">Add deadline</label>
+        <input type="date" id="inputDate" required />
+        <button type="submit" id="btnAdd">Add</button>
+      </div>
+      <div class="sort">Sort</div>
+      <div class="tasks">
+        <div class="task">
+          <h2>Task</h2>
+          <h2>Deadline</h2>
+          <h2>Mark</h2>
+          <h2>Delete</h2>
+        </div>
+      </div>
+      <div class="tasks" id="todoList"></div>
+    </main>
+    <script src="script.js"></script>
   </body>
 </html>
