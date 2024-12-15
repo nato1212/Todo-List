@@ -20,6 +20,18 @@ function renderTodoList() {
             <button class="delete">delete</button>
         `;
 
+    div
+      .querySelector('input[type="checkbox"]')
+      .addEventListener("change", (e) => {
+        task.completed = e.target.checked;
+        renderTodoList();
+      });
+
+    div.querySelector(".delete").addEventListener("click", () => {
+      tasks = tasks.filter((t) => t !== task);
+      renderTodoList();
+    });
+
     todoList.appendChild(div);
   });
 }

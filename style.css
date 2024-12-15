@@ -93,3 +93,14 @@ main {
 .task p {
   font-size: 1.5rem;
 }
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.delete {
+  background-color: #9ea9a4;
+  color: red;
+  border: none;
+}
