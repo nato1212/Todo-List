@@ -1,6 +1,9 @@
 const inputTask = document.getElementById("inputTask");
 const inputDate = document.getElementById("inputDate");
 const btnAdd = document.getElementById("btnAdd");
+const btnSortOrder = document.getElementById("btnSortOrder");
+const btnSortDate = document.getElementById("btnSortDate");
+const btnSortAlphabet = document.getElementById("btnSortAlphabet");
 
 const todoList = document.getElementById("todoList");
 
@@ -63,9 +66,25 @@ btnAdd.addEventListener("click", () => {
     newTask: newTask,
     deadline: deadline,
     completed: false,
+    createdDate: new Date(),
   });
   inputTask.value = "";
   inputDate.value = "";
 
+  renderTodoList();
+});
+
+btnSortOrder.addEventListener("click", () => {
+  tasks.sort((a, b) => a.createdDate - b.createdDate);
+  renderTodoList();
+});
+
+btnSortDate.addEventListener("click", () => {
+  tasks.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+  renderTodoList();
+});
+
+btnSortAlphabet.addEventListener("click", () => {
+  tasks.sort((a, b) => a.newTask.localeCompare(b.newTask));
   renderTodoList();
 });

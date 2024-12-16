@@ -66,6 +66,27 @@ main {
 }
 
 /* Main Sort part */
+.sort-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+  gap: 2rem;
+}
+
+.sort-buttons button {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 4rem;
+  background-color: rgb(230, 230, 205);
+  color: rgb(5, 4, 4);
+  cursor: pointer;
+}
+
+.sort-buttons button:hover {
+  background-color: rgb(196, 196, 137);
+  color: rgb(12, 8, 8);
+}
 
 /* Main task List */
 .tasks {
@@ -100,7 +121,16 @@ main {
 }
 
 .delete {
-  background-color: #9ea9a4;
-  color: red;
+  background-color: #daf7ea;
+  color: rgb(191, 8, 8);
   border: none;
+  cursor: pointer;
+  width: fit-content;
+  padding: 0.3rem;
+  border-radius: 2rem;
+}
+
+.delete:hover {
+  background-color: #aacfbe;
+  color: rgb(252, 64, 64);
 }
