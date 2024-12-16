@@ -7,6 +7,10 @@ const btnSortAlphabet = document.getElementById("btnSortAlphabet");
 
 const todoList = document.getElementById("todoList");
 
+const totalTasks = document.getElementById("totalTasks");
+const completedTasks = document.getElementById("completedTasks");
+const uncompletedTasks = document.getElementById("uncompletedTasks");
+
 let tasks = [];
 
 function renderTodoList() {
@@ -28,11 +32,13 @@ function renderTodoList() {
       .addEventListener("change", (e) => {
         task.completed = e.target.checked;
         renderTodoList();
+        taskStatus();
       });
 
     div.querySelector(".delete").addEventListener("click", () => {
       tasks = tasks.filter((t) => t !== task);
       renderTodoList();
+      taskStatus();
     });
 
     todoList.appendChild(div);
@@ -72,6 +78,7 @@ btnAdd.addEventListener("click", () => {
   inputDate.value = "";
 
   renderTodoList();
+  taskStatus();
 });
 
 btnSortOrder.addEventListener("click", () => {
@@ -88,3 +95,13 @@ btnSortAlphabet.addEventListener("click", () => {
   tasks.sort((a, b) => a.newTask.localeCompare(b.newTask));
   renderTodoList();
 });
+
+function taskStatus() {
+  const total = tasks.length;
+  const completed = tasks.filter((task) => task.completed).length;
+  const uncompleted = total - completed;
+
+  totalTasks.textContent = total;
+  completedTasks.textContent = completed;
+  uncompletedTasks.textContent = uncompleted;
+}
